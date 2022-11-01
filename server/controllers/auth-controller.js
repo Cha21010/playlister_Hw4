@@ -29,7 +29,7 @@ getLoggedIn = async (req, res) => {
         res.json(false);
     }
 }
-
+// login
 loginUser = async (req, res) => {
     console.log("loginUser");
     try {
