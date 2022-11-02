@@ -259,6 +259,13 @@ function GlobalStoreContextProvider(props) {
         });
         tps.clearAllTransactions();
     }
+    store.unmarkListForDeletion = function(){
+        storeReducer({
+            type:GlobalStoreActionType.MARK_LIST_FOR_DELETION,
+            payload:{id:null,playlist:null}
+        })
+        store.hideModals();
+    }
 
     // THIS FUNCTION CREATES A NEW LIST
     store.createNewList = async function () {
@@ -324,6 +331,7 @@ function GlobalStoreContextProvider(props) {
                 store.loadIdNamePairs();
                 history.push("/");
             }
+            store.loadIdNamePairs();
         }
         processDelete(id);
     }
@@ -390,7 +398,7 @@ function GlobalStoreContextProvider(props) {
     }
     store.addNewSong = function() {
         let index = this.getPlaylistSize();
-        this.addCreateSongTransaction(index, "Untitled", "?", "dQw4w9WgXcQ");
+        this.addCreateSongTransaction(index, "Untitled", "unknown", "dQw4w9WgXcQ");
     }
     // THIS FUNCTION CREATES A NEW SONG IN THE CURRENT LIST
     // USING THE PROVIDED DATA AND PUTS THIS SONG AT INDEX

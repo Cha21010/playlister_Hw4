@@ -49,7 +49,7 @@ export default function MUIEditSongModal() {
 
     return (
         <Modal
-            open={store.listMarkedForDeletion !== null}
+            open={store.songMarkedForDeletion !== null}
         >
             <Box sx={style}>
             <div
