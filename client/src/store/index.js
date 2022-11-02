@@ -257,6 +257,7 @@ function GlobalStoreContextProvider(props) {
             type: GlobalStoreActionType.CLOSE_CURRENT_LIST,
             payload: {}
         });
+        history.push("/");
         tps.clearAllTransactions();
     }
     store.unmarkListForDeletion = function(){
@@ -266,7 +267,6 @@ function GlobalStoreContextProvider(props) {
         })
         store.hideModals();
     }
-
     // THIS FUNCTION CREATES A NEW LIST
     store.createNewList = async function () {
         let newListName = "Untitled" + store.newListCounter;
