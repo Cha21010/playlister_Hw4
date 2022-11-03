@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import AuthContext from '../auth'
-
+import MUIRegisterErrorModal from './MUIRegisterErrorModal';
 import Copyright from './Copyright'
 
 import Avatar from '@mui/material/Avatar';
@@ -26,9 +26,11 @@ export default function LoginScreen() {
             formData.get('email'),
             formData.get('password')
         );
-
     };
-
+    let modalJSX = "";
+    if (auth.errMessage) {
+        modalJSX = <MUIRegisterErrorModal />;
+    }
     return (
         <Grid container component="main" sx={{ height: '100vh' }}>
             <CssBaseline />
@@ -110,7 +112,9 @@ export default function LoginScreen() {
                         <Copyright sx={{ mt: 5 }} />
                     </Box>
                 </Box>
+                {modalJSX}
             </Grid>
+           
         </Grid>
     );
 }
