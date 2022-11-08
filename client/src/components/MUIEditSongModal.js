@@ -9,11 +9,11 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 250,
+    width: 500,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 20,
+    p: 4,
 };
 
 export default function MUIEditSongModal() {
@@ -54,7 +54,7 @@ export default function MUIEditSongModal() {
             <Box sx={style}>
             <div
             id="edit-song-modal"
-            className="modal is-visible"
+            className="modal-dialog"
             data-animation="slideInOutLeft">
             <div
                 id='edit-song-root'
@@ -87,6 +87,8 @@ export default function MUIEditSongModal() {
                         defaultValue={youTubeId} 
                         onChange={handleUpdateYouTubeId} />
                 </div>
+                <br/>
+                <br/>
                 <div className="modal-south">
                     <input 
                         type="button" 
